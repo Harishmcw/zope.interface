@@ -233,12 +233,18 @@ jobs:
         with:
           name: zope.interface-${{ runner.os }}-${{ matrix.python-version }}.whl
           path: dist/*arm64.whl
-      - name: Upload zope.interface wheel (all other platforms)
-        if: >
-          !startsWith(runner.os, 'Mac')
+      - name: Upload zope.interface wheel (Windows)
+        if: startsWith(runner.os, 'Windows')
         uses: actions/upload-artifact@v4
         with:
-          name: zope.interface-${{ matrix.os }}-${{ matrix.python-version }}.whl
+          name: zope.interface-${{ runner.os }}-${{ matrix.python-version }}-${{ runner.arch }}.whl
+          path: dist/*whl
+
+      - name: Upload zope.interface wheel (Linux)
+        if: startsWith(runner.os, 'Linux')
+        uses: actions/upload-artifact@v4
+        with:
+          name: zope.interface-${{ runner.os }}-${{ matrix.python-version }}.whl
           path: dist/*whl
 
   test:
@@ -313,10 +319,18 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pip-
 
-      - name: Download zope.interface wheel
+      - name: Download zope.interface wheel (Linux/macOS)
+        if: "!startsWith(runner.os, 'Windows')"
         uses: actions/download-artifact@v4
         with:
-          name: zope.interface-${{ matrix.os }}-${{ matrix.python-version }}.whl
+          name: zope.interface-${{ runner.os }}-${{ matrix.python-version }}.whl
+          path: dist/
+
+      - name: Download zope.interface wheel (Windows)
+        if: startsWith(runner.os, 'Windows')
+        uses: actions/download-artifact@v4
+        with:
+          name: zope.interface-${{ runner.os }}-${{ matrix.python-version }}-${{ runner.arch }}.whl
           path: dist/
       - name: Install zope.interface
         # ``python -m unittest discover`` only works with editable
@@ -417,7 +431,7 @@ jobs:
       - name: Download zope.interface wheel
         uses: actions/download-artifact@v4
         with:
-          name: zope.interface-${{ matrix.os }}-${{ matrix.python-version }}.whl
+          name: zope.interface-${{ runner.os }}-${{ matrix.python-version }}.whl
           path: dist/
       - name: Install zope.interface
         run: |
@@ -488,7 +502,7 @@ jobs:
       - name: Download zope.interface wheel
         uses: actions/download-artifact@v4
         with:
-          name: zope.interface-${{ matrix.os }}-${{ matrix.python-version }}.whl
+          name: zope.interface-${{ runner.os }}-${{ matrix.python-version }}.whl
           path: dist/
       - name: Install zope.interface
         run: |
