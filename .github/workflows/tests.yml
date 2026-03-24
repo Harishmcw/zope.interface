@@ -238,7 +238,7 @@ jobs:
           !startsWith(runner.os, 'Mac')
         uses: actions/upload-artifact@v4
         with:
-          name: zope.interface-${{ runner.os }}-${{ matrix.python-version }}.whl
+          name: zope.interface-${{ matrix.os }}-${{ matrix.python-version }}.whl
           path: dist/*whl
 
   test:
@@ -316,7 +316,7 @@ jobs:
       - name: Download zope.interface wheel
         uses: actions/download-artifact@v4
         with:
-          name: zope.interface-${{ runner.os }}-${{ matrix.python-version }}.whl
+          name: zope.interface-${{ matrix.os }}-${{ matrix.python-version }}.whl
           path: dist/
       - name: Install zope.interface
         # ``python -m unittest discover`` only works with editable
@@ -417,7 +417,7 @@ jobs:
       - name: Download zope.interface wheel
         uses: actions/download-artifact@v4
         with:
-          name: zope.interface-${{ runner.os }}-${{ matrix.python-version }}.whl
+          name: zope.interface-${{ matrix.os }}-${{ matrix.python-version }}.whl
           path: dist/
       - name: Install zope.interface
         run: |
@@ -488,7 +488,7 @@ jobs:
       - name: Download zope.interface wheel
         uses: actions/download-artifact@v4
         with:
-          name: zope.interface-${{ runner.os }}-${{ matrix.python-version }}.whl
+          name: zope.interface-${{ matrix.os }}-${{ matrix.python-version }}.whl
           path: dist/
       - name: Install zope.interface
         run: |
