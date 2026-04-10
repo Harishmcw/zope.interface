@@ -315,20 +315,12 @@ jobs:
           key: ${{ runner.os }}-pip-${{ matrix.python-version }}
           restore-keys: |
             ${{ runner.os }}-pip-
-      - name: Download zope.interface wheel (Linux/macOS)
-        if: "!startsWith(runner.os, 'Windows')"
-        uses: actions/download-artifact@v4
+
+      - name: Download zope.interface wheel
+        uses: actions/download-artifact@v8
         with:
           name: zope.interface-${{ runner.os }}-${{ matrix.python-version }}.whl
-          path: dist/
-
-      - name: Download zope.interface wheel (Windows)
-        if: startsWith(runner.os, 'Windows')
-        uses: actions/download-artifact@v4
-        with:
-          name: zope.interface-${{ runner.os }}-${{ matrix.python-version }}-${{ runner.arch }}.whl
-          path: dist/
-      - name: Install zope.interface
+          path: dist/      - name: Install zope.interface
         # ``python -m unittest discover`` only works with editable
         # installs, so we have to duplicate some work and can't
         # install the built wheel. (zope.testrunner
@@ -423,20 +415,12 @@ jobs:
           key: ${{ runner.os }}-pip-${{ matrix.python-version }}
           restore-keys: |
             ${{ runner.os }}-pip-
-      - name: Download zope.interface wheel (Linux/macOS)
-        if: "!startsWith(runner.os, 'Windows')"
-        uses: actions/download-artifact@v4
+
+      - name: Download zope.interface wheel
+        uses: actions/download-artifact@v8
         with:
           name: zope.interface-${{ runner.os }}-${{ matrix.python-version }}.whl
-          path: dist/
-
-      - name: Download zope.interface wheel (Windows)
-        if: startsWith(runner.os, 'Windows')
-        uses: actions/download-artifact@v4
-        with:
-          name: zope.interface-${{ runner.os }}-${{ matrix.python-version }}-${{ runner.arch }}.whl
-          path: dist/
-      - name: Install zope.interface
+          path: dist/      - name: Install zope.interface
         run: |
           pip install -U wheel
           pip install -U coverage[toml]
@@ -501,20 +485,12 @@ jobs:
           key: ${{ runner.os }}-pip-${{ matrix.python-version }}
           restore-keys: |
             ${{ runner.os }}-pip-
-      - name: Download zope.interface wheel (Linux/macOS)
-        if: "!startsWith(runner.os, 'Windows')"
-        uses: actions/download-artifact@v4
+
+      - name: Download zope.interface wheel
+        uses: actions/download-artifact@v8
         with:
           name: zope.interface-${{ runner.os }}-${{ matrix.python-version }}.whl
-          path: dist/
-
-      - name: Download zope.interface wheel (Windows)
-        if: startsWith(runner.os, 'Windows')
-        uses: actions/download-artifact@v4
-        with:
-          name: zope.interface-${{ runner.os }}-${{ matrix.python-version }}-${{ runner.arch }}.whl
-          path: dist/
-      - name: Install zope.interface
+          path: dist/      - name: Install zope.interface
         run: |
           pip install -U wheel
           pip install -U tox
