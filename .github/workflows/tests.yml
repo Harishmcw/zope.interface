@@ -315,12 +315,12 @@ jobs:
           key: ${{ runner.os }}-pip-${{ matrix.python-version }}
           restore-keys: |
             ${{ runner.os }}-pip-
-- name: Download zope.interface wheel (Linux/macOS)
-        if: "!startsWith(runner.os, 'Windows')"
-        uses: actions/download-artifact@v8
-        with:
-          name: zope.interface-${{ runner.os }}-${{ matrix.python-version }}.whl
-          path: dist/
+      - name: Download zope.interface wheel (Linux/macOS)
+              if: "!startsWith(runner.os, 'Windows')"
+              uses: actions/download-artifact@v8
+              with:
+                name: zope.interface-${{ runner.os }}-${{ matrix.python-version }}.whl
+                path: dist/
 
       - name: Download zope.interface wheel (Windows)
         if: startsWith(runner.os, 'Windows')
@@ -422,12 +422,12 @@ jobs:
           key: ${{ runner.os }}-pip-${{ matrix.python-version }}
           restore-keys: |
             ${{ runner.os }}-pip-
-- name: Download zope.interface wheel (Linux/macOS)
-        if: "!startsWith(runner.os, 'Windows')"
-        uses: actions/download-artifact@v8
-        with:
-          name: zope.interface-${{ runner.os }}-${{ matrix.python-version }}.whl
-          path: dist/
+      - name: Download zope.interface wheel (Linux/macOS)
+              if: "!startsWith(runner.os, 'Windows')"
+              uses: actions/download-artifact@v8
+              with:
+                name: zope.interface-${{ runner.os }}-${{ matrix.python-version }}.whl
+                path: dist/
 
       - name: Download zope.interface wheel (Windows)
         if: startsWith(runner.os, 'Windows')
@@ -499,12 +499,12 @@ jobs:
           key: ${{ runner.os }}-pip-${{ matrix.python-version }}
           restore-keys: |
             ${{ runner.os }}-pip-
-- name: Download zope.interface wheel (Linux/macOS)
-        if: "!startsWith(runner.os, 'Windows')"
-        uses: actions/download-artifact@v8
-        with:
-          name: zope.interface-${{ runner.os }}-${{ matrix.python-version }}.whl
-          path: dist/
+      - name: Download zope.interface wheel (Linux/macOS)
+              if: "!startsWith(runner.os, 'Windows')"
+              uses: actions/download-artifact@v8
+              with:
+                name: zope.interface-${{ runner.os }}-${{ matrix.python-version }}.whl
+                path: dist/
 
       - name: Download zope.interface wheel (Windows)
         if: startsWith(runner.os, 'Windows')
