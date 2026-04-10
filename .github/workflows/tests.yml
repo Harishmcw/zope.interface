@@ -423,11 +423,12 @@ jobs:
           key: ${{ runner.os }}-pip-${{ matrix.python-version }}
           restore-keys: |
             ${{ runner.os }}-pip-
-- name: Download zope.interface wheel
-        uses: actions/download-artifact@v4
-        with:
-          name: zope.interface-${{ runner.os }}-${{ matrix.python-version }}.whl
-          path: dist/      - name: Install zope.interface
+    - name: Download zope.interface wheel
+      uses: actions/download-artifact@v4
+      with:
+      name: zope.interface-${{ runner.os }}-${{ matrix.python-version }}.whl
+      path: dist/
+      - name: Install zope.interface
         run: |
           pip install -U wheel
           pip install -U coverage[toml]
@@ -492,11 +493,12 @@ jobs:
           key: ${{ runner.os }}-pip-${{ matrix.python-version }}
           restore-keys: |
             ${{ runner.os }}-pip-
-- name: Download zope.interface wheel
-        uses: actions/download-artifact@v4
-        with:
-          name: zope.interface-${{ runner.os }}-${{ matrix.python-version }}.whl
-          path: dist/      - name: Install zope.interface
+    - name: Download zope.interface wheel
+      uses: actions/download-artifact@v4
+      with:
+      name: zope.interface-${{ runner.os }}-${{ matrix.python-version }}.whl
+      path: dist/
+      - name: Install zope.interface
         run: |
           pip install -U wheel
           pip install -U tox
