@@ -315,16 +315,17 @@ jobs:
           key: ${{ runner.os }}-pip-${{ matrix.python-version }}
           restore-keys: |
             ${{ runner.os }}-pip-
+
       - name: Download zope.interface wheel (Linux/macOS)
-              if: "!startsWith(runner.os, 'Windows')"
-              uses: actions/download-artifact@v8
-              with:
-                name: zope.interface-${{ runner.os }}-${{ matrix.python-version }}.whl
-                path: dist/
+        if: "!startsWith(runner.os, 'Windows')"
+        uses: actions/download-artifact@v4
+        with:
+          name: zope.interface-${{ runner.os }}-${{ matrix.python-version }}.whl
+          path: dist/
 
       - name: Download zope.interface wheel (Windows)
         if: startsWith(runner.os, 'Windows')
-        uses: actions/download-artifact@v8
+        uses: actions/download-artifact@v4
         with:
           name: zope.interface-${{ runner.os }}-${{ matrix.python-version }}-${{ runner.arch }}.whl
           path: dist/      - name: Install zope.interface
@@ -422,16 +423,17 @@ jobs:
           key: ${{ runner.os }}-pip-${{ matrix.python-version }}
           restore-keys: |
             ${{ runner.os }}-pip-
+
       - name: Download zope.interface wheel (Linux/macOS)
-              if: "!startsWith(runner.os, 'Windows')"
-              uses: actions/download-artifact@v8
-              with:
-                name: zope.interface-${{ runner.os }}-${{ matrix.python-version }}.whl
-                path: dist/
+        if: "!startsWith(runner.os, 'Windows')"
+        uses: actions/download-artifact@v4
+        with:
+          name: zope.interface-${{ runner.os }}-${{ matrix.python-version }}.whl
+          path: dist/
 
       - name: Download zope.interface wheel (Windows)
         if: startsWith(runner.os, 'Windows')
-        uses: actions/download-artifact@v8
+        uses: actions/download-artifact@v4
         with:
           name: zope.interface-${{ runner.os }}-${{ matrix.python-version }}-${{ runner.arch }}.whl
           path: dist/      - name: Install zope.interface
@@ -499,16 +501,17 @@ jobs:
           key: ${{ runner.os }}-pip-${{ matrix.python-version }}
           restore-keys: |
             ${{ runner.os }}-pip-
+
       - name: Download zope.interface wheel (Linux/macOS)
-              if: "!startsWith(runner.os, 'Windows')"
-              uses: actions/download-artifact@v8
-              with:
-                name: zope.interface-${{ runner.os }}-${{ matrix.python-version }}.whl
-                path: dist/
+        if: "!startsWith(runner.os, 'Windows')"
+        uses: actions/download-artifact@v4
+        with:
+          name: zope.interface-${{ runner.os }}-${{ matrix.python-version }}.whl
+          path: dist/
 
       - name: Download zope.interface wheel (Windows)
         if: startsWith(runner.os, 'Windows')
-        uses: actions/download-artifact@v8
+        uses: actions/download-artifact@v4
         with:
           name: zope.interface-${{ runner.os }}-${{ matrix.python-version }}-${{ runner.arch }}.whl
           path: dist/      - name: Install zope.interface
