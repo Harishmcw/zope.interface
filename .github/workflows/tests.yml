@@ -218,7 +218,7 @@ jobs:
       - name: Upload zope.interface wheel (macOS x86_64)
         if: >
           startsWith(runner.os, 'Mac')
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@v4
         with:
           # The x86_64 wheel is uploaded with a different name just so it can be
           # manually downloaded when desired. The wheel itself *cannot* be tested
@@ -229,20 +229,20 @@ jobs:
         if: >
           startsWith(runner.os, 'Mac')
           && !startsWith(matrix.python-version, 'pypy')
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@v4
         with:
           name: zope.interface-${{ runner.os }}-${{ matrix.python-version }}.whl
           path: dist/*arm64.whl
       - name: Upload zope.interface wheel (Windows)
         if: startsWith(runner.os, 'Windows')
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@v4
         with:
           name: zope.interface-${{ runner.os }}-${{ matrix.python-version }}-${{ runner.arch }}.whl
           path: dist/*whl
 
       - name: Upload zope.interface wheel (Linux)
         if: startsWith(runner.os, 'Linux')
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@v4
         with:
           name: zope.interface-${{ runner.os }}-${{ matrix.python-version }}.whl
           path: dist/*whl
@@ -608,7 +608,7 @@ jobs:
           bash .manylinux.sh
 
       - name: Upload zope.interface wheels
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@v4
         with:
           path: wheelhouse/*whl
           name: manylinux_${{ matrix.image }}_wheels.zip
@@ -635,7 +635,7 @@ jobs:
 
     steps:
       - name: Download all wheel artifacts
-        uses: actions/download-artifact@v8
+        uses: actions/download-artifact@v4
         with:
           path: dist/
           pattern: '*'
