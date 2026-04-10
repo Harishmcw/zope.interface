@@ -432,8 +432,8 @@ jobs:
       - name: Download zope.interface wheel
         uses: actions/download-artifact@v4
         with:
-        name: zope.interface-${{ runner.os }}-${{ matrix.python-version }}.whl
-        path: dist/
+            name: zope.interface-${{ runner.os }}-${{ matrix.python-version }}.whl
+            path: dist/
       - name: Install zope.interface
         run: |
           pip install -U wheel
@@ -502,8 +502,8 @@ jobs:
       - name: Download zope.interface wheel
         uses: actions/download-artifact@v4
         with:
-        name: zope.interface-${{ runner.os }}-${{ matrix.python-version }}.whl
-        path: dist/
+            name: zope.interface-${{ runner.os }}-${{ matrix.python-version }}.whl
+            path: dist/
       - name: Install zope.interface
         run: |
           pip install -U wheel
