@@ -142,7 +142,7 @@ jobs:
           path: ${{ steps.pip-cache-default.outputs.dir }}
           key: ${{ runner.os }}-${{ runner.arch }}-pip-${{ matrix.python-version }}
           restore-keys: |
-            ${{ runner.os }}-pip-
+            ${{ runner.os }}-${{ runner.arch }}-pip-
 
       - name: pip cache (Windows)
         uses: actions/cache@v5
@@ -311,7 +311,7 @@ jobs:
           path: ${{ steps.pip-cache-default.outputs.dir }}
           key: ${{ runner.os }}-${{ runner.arch }}-pip-${{ matrix.python-version }}
           restore-keys: |
-            ${{ runner.os }}-pip-
+            ${{ runner.os }}-${{ runner.arch }}-pip-
 
       - name: pip cache (Windows)
         uses: actions/cache@v5
@@ -419,7 +419,7 @@ jobs:
           path: ${{ steps.pip-cache-default.outputs.dir }}
           key: ${{ runner.os }}-${{ runner.arch }}-pip-${{ matrix.python-version }}
           restore-keys: |
-            ${{ runner.os }}-pip-
+            ${{ runner.os }}-${{ runner.arch }}-pip-
 
       - name: pip cache (Windows)
         uses: actions/cache@v5
@@ -489,7 +489,7 @@ jobs:
           path: ${{ steps.pip-cache-default.outputs.dir }}
           key: ${{ runner.os }}-${{ runner.arch }}-pip-${{ matrix.python-version }}
           restore-keys: |
-            ${{ runner.os }}-pip-
+            ${{ runner.os }}-${{ runner.arch }}-pip-
 
       - name: pip cache (Windows)
         uses: actions/cache@v5
@@ -566,7 +566,7 @@ jobs:
           path: ${{ steps.pip-cache-default.outputs.dir }}
           key: ${{ runner.os }}-pip_manylinux-${{ matrix.image }}-${{ matrix.python-version }}
           restore-keys: |
-            ${{ runner.os }}-pip-
+            ${{ runner.os }}-${{ runner.arch }}-pip-
 
       - name: pip cache (Windows)
         uses: actions/cache@v5
